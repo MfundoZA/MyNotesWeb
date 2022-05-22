@@ -1,0 +1,13 @@
+{
+  "name": "MyNotesWeb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Mfundo Tenza",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^9.8.1"
+  }
+}

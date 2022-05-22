@@ -1,0 +1,39 @@
+body {
+    margin: 0px;
+    background-color: antiquewhite;
+}
+
+.navbar {
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+
+.navbar-item {
+    margin: 8px;
+} 
+
+.navbar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto, serif;
+}
+
+.navbar div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    height: 28px;
+    width: 28px;
+    margin: 8px 2px 8px 8px;
+}
+
+.navbar p {
+    margin: 8px 8px 8px 2px;
+    font-family: Roboto, serif;
+}
