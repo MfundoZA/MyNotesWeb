@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "site": "linote",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/node_modules/**"
+    ]
+  }
+}
