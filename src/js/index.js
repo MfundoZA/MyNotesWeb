@@ -3,7 +3,7 @@ import { getAnalytics } from "firebase/analytics";
 import {getAuth} from 'firebase/auth';
 import {getDatabase} from 'firebase/database';
 
-const firebase = initializeApp({
+const firebaseConfig = initializeApp({
     apiKey: "AIzaSyBuWSw5Mc9n44NOp_WdA3o01jU9vuRxsoU",
   authDomain: "mynotes-417be.firebaseapp.com",
   projectId: "mynotes-417be",
@@ -13,5 +13,7 @@ const firebase = initializeApp({
   measurementId: "G-YK9PD1XREX"
 });
 
-const auth = getAuth(firebaseApp);
-const db = getDatabase(firebaseApp);
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(firebaseConfig);
+const db = getDatabase(firebaseConfig);
