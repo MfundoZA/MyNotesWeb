@@ -1,19 +1,32 @@
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
-import {getAuth} from 'firebase/auth';
-import {getDatabase} from 'firebase/database';
+import { onValue, ref, set } from "firebase/database";
+import { db } from "./firebase.js";
 
-const firebaseConfig = initializeApp({
-    apiKey: "AIzaSyBuWSw5Mc9n44NOp_WdA3o01jU9vuRxsoU",
-  authDomain: "mynotes-417be.firebaseapp.com",
-  projectId: "mynotes-417be",
-  storageBucket: "mynotes-417be.appspot.com",
-  messagingSenderId: "14258008063",
-  appId: "1:14258008063:web:5a2a7d052695624a1d01ca",
-  measurementId: "G-YK9PD1XREX"
+var listItems = document.getElementsByClassName("list");
+
+export const notesRef = ref(db, "notes");
+onValue(notesRef, (snapshot) => {
+  snapshot.forEach((childSnapshot) => {
+    var childData = childSnapshot.val();
+    var listItem = document.createElement("ul");
+    listItem.className = "list-item";
+
+    var prgTitle = document.createElement("p");
+    prgTitle.appendChild(document.createTextNode(childData.title));
+    var prgDescription = document.createElement("p");
+    prgDescription.appendChild(document.createTextNode(childData.description));
+    var prgCategory = document.createElement("p");
+    prgCategory.appendChild(document.createTextNode(childData.category));
+    
+    prgTitle.className = "list-item-title";
+    prgCategory.className = "list-item-category";
+    prgDescription.className = "list-item-description";
+
+    listItem.appendChild(prgTitle);
+    listItem.appendChild(prgCategory);
+    listItem.appendChild(prgDescription);
+
+    if(listItems.length > 0) {
+      listItems[0].appendChild(listItem);
+    }
+  });
 });
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(firebaseConfig);
-const db = getDatabase(firebaseConfig);

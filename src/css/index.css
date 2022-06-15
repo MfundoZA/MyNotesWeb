@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    background-color: antiquewhite;
+    background-color: #f0f8ff;
 }
 
 .navbar {
@@ -8,7 +8,7 @@ body {
     flex-direction: row;
     height: 45px;
     padding-left: 8px;
-    background-color: white;
+    background-color: #ffdaba;
 }
 
 .navbar-item {
@@ -70,4 +70,36 @@ form > * {
     margin: 16px;
     width: 72px;
     height: 32px;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+.list-item {
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 6px;
+    font-family: Roboto, serif;
+}
+
+.list-item-title {
+    margin: 8px;
+    align-self: end;
+    font-size: xx-large;
+}
+
+.list-item-description {
+    margin: 8px;
+    align-self: start;
+    color: dimgray;
+    font-size: larger;
+}
+
+.list-item-category {
+    margin: 8px;
+    align-self: end;
+    justify-self: end;
+    font-size: large;
 }

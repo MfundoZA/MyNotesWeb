@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linote</title>
+    <title>MyNotes</title>
+    <script src="../js/bundle.js" defer></script>
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    
 </head>
 <body>
     <!-- Nav bar -->
@@ -20,29 +22,29 @@
 
     <form>
         <div class="input-container">
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="txtTitle"><br>
+            <label for="txtTitle">Title:</label><br>
+            <input type="text" id="txtTitle" name="txtTitle"><br>
         </div>
 
         <div class="input-container">
-            <label for="description">Description:</label><br>
-            <input type="text" id="description" name="txtDescription"><br>
+            <label for="txtDescription">Description:</label><br>
+            <input type="text" id="txtDescription" name="txtDescription"><br>
         </div>
 
         <div class="input-container">
-            <label for="category">Catergory:</label><br>
-            <select id="categories" name="drpCategories">
-                <option value="Category 1">Category 1</option>
-                <option value="Category 2">Category 2</option>
-                <option value="Category 3">Category 3</option>
+            <label for="drpCategories">Catergory:</label><br>
+            <select id="drpCategories" name="drpCategories">
+                
             </select>
-            <a style="float: right;" href="new-category.html">+ Create Catergory</a>
+            <a style="float: right;" href="./create-category.html">+ Create Catergory</a>
         </div>
 
-        <div class="button-container">
-            <button>Clear</button>
-            <button>Submit</button>
-        </div>
+        
     </form>
+
+    <div class="button-container">
+        <button>Clear</button>
+        <button id="btnSubmit">Submit</button>
+    </div>
 </body>
 </html>

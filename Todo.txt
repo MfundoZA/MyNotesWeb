@@ -1,0 +1,2 @@
+-- Normalized database to avoid anomalies
+-- 
