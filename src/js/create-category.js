@@ -4,6 +4,6 @@ var btnCategorySubmit = document.getElementById("btnSubmit");
 
 if(btnCategorySubmit != null) {
     btnCategorySubmit.onclick = function postCategory() {
-        
+        // Send category to firebase
     }
 }
