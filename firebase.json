@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "linote",
     "public": "public",
     "ignore": [
       "firebase.json",
