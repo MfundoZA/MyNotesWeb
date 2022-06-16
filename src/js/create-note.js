@@ -4,35 +4,39 @@ import { db } from "./firebase.js";
 var btnNoteSubmit = document.getElementById("btnSubmit");
 var drpCategories = document.getElementById("drpCategories");
 
-var categoriesRef = ref(db, "categories");
-onValue(categoriesRef, (snapshot) => { 
-  snapshot.forEach((childSnapshot) => {
-    var optCategory = document.createElement("option");
-    optCategory.text = optCategory.value = childSnapshot.val().category;
-    drpCategories.add(optCategory);
-  });
-});
-
 if (btnNoteSubmit != null) {
-  btnNoteSubmit.onclick = function postNote() {
-    var title = document.getElementById("txtTitle").value;
-    var description = document.getElementById("txtDescription").value;
-    const category = drpCategories.options[drpCategories.selectedIndex].text;
-    var noteId = hashString(title + category);
-  
-  
-    set(ref(db, "notes/" +  noteId), {
-      title: title,
-      description: description,
-      category: category
+  var categoriesRef = ref(db, "categories");
+  onValue(categoriesRef, (snapshot) => { 
+    snapshot.forEach((childSnapshot) => {
+      var optCategory = document.createElement("option");
+      optCategory.text = optCategory.value = childSnapshot.val();
+      drpCategories.add(optCategory);
     });
+  });
 
-    var categoryId = hashString(category);
-    set(ref(db, "categories/" + categoryId), {
+  if (btnNoteSubmit != null) {
+    btnNoteSubmit.onclick = function postNote() {
+      var title = document.getElementById("txtTitle").value;
+      var description = document.getElementById("txtDescription").value;
+      const category = drpCategories.options[drpCategories.selectedIndex].text;
+      var noteId = hashString(title + category);
+    
+    
+      set(ref(db, "notes/" +  noteId), {
+        title: title,
+        description: description,
         category: category
-    });
-  
-    alert("Data submitted!");
+      });
+
+      var categoryId = hashString(category);
+      set(ref(db, "categories/" + categoryId), {
+          category: category
+      });
+    
+      alert("Data submitted!");
+
+      window.location.href = "../index.html";
+    };
   }
 }
 
@@ -43,9 +47,9 @@ if (btnNoteSubmit != null) {
  * @see http://werxltd.com/wp/2010/05/13/javascript-implementation-of-javas-string-hashcode-method/
  */
  function hashString(str) {
-  let hash = 0;
-  for (let i = 0, len = str.length; i < len; i++) {
-      let chr = str.charCodeAt(i);
+  var hash = 0;
+  for (var i = 0, len = str.length; i < len; i++) {
+      var chr = str.charCodeAt(i);
       hash = (hash << 5) - hash + chr;
       hash |= 0; // Convert to 32bit integer
   }
